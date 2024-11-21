@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "vendor/stack.h"
+#include "vendor/str_stack.h"
 
 void part_1();
+void part_2();
 
 void main() {
     part_1();
@@ -45,4 +47,7 @@ void part_1() {
             break;
         }
     }
+}
+void part_2() {
+
 }
