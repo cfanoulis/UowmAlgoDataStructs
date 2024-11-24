@@ -10,6 +10,7 @@ int main() {
     printf("Select part to run:\n1) Largest in the history of the stack\n2) Reversing sentences\n>");
     int choice;
     scanf("%d", &choice);
+    printf("=======\n");
     switch (choice) {
         case 1:
             return part_1();
@@ -23,7 +24,6 @@ int main() {
 
 int part_1() {
     stack_element_type input = -999;
-
     stack_type values;
     stack_type largest_values;
 
@@ -31,10 +31,10 @@ int part_1() {
     initialize(&largest_values);
 
     while (input != -1) {
+        stack_element_type tmp = -1;
+
         printf("Give me a number:");
         scanf("%d", &input);
-
-        stack_element_type tmp = -1;
 
         switch (input) {
             case 0:
