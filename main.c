@@ -2,7 +2,9 @@
 #include "vendor/stack.h"
 
 int part_1();
+
 int part_2();
+
 void display_word(stack_type *stack);
 
 
@@ -18,7 +20,7 @@ int main() {
             return part_2();
         default:
             printf("Invalid!");
-        return -1;
+            return -1;
     }
 }
 
@@ -39,24 +41,24 @@ int part_1() {
         switch (input) {
             case 0:
                 pop(&values, &tmp);
-            printf("Last number was %d\n", tmp);
-            break;
+                printf("Last number was %d\n", tmp);
+                break;
 
             case -1:
                 pop(&largest_values, &tmp);
-            printf("Largest number was %d\n", tmp);
-            break;
+                printf("Largest number was %d\n", tmp);
+                break;
 
             default:
                 push(&values, input);
 
-            if(is_empty(largest_values)) {push(&largest_values, input);} else {
-                top(largest_values, &tmp);
-                if(tmp < input) push(&largest_values, input);
-            }
+                if (is_empty(largest_values)) { push(&largest_values, input); } else {
+                    top(largest_values, &tmp);
+                    if (tmp < input) push(&largest_values, input);
+                }
 
-            printf("Number stacked successfully!\n");
-            break;
+                printf("Number stacked successfully!\n");
+                break;
         }
     }
 
@@ -66,7 +68,7 @@ int part_1() {
 
 int part_2() {
     printf("Input file (escape properly!):");
-    char* filename = "";
+    char *filename = "";
     scanf("%.256s", filename);
     FILE *fp = fopen(filename, "r");
 
@@ -84,12 +86,12 @@ int part_2() {
     while (!feof(fp)) {
         char in = fgetc(fp);
 
-        if(in == '.' || in == '!' || in =='?') {
-            while(!is_empty(stack1)) {
+        if (in == '.' || in == '!' || in == '?') {
+            while (!is_empty(stack1)) {
                 int tmp;
                 pop(&stack1, &tmp);
 
-                if(tmp == ' ') {
+                if (tmp == ' ') {
                     display_word(&stack2);
                     printf(" ");
                 } else {
@@ -113,7 +115,7 @@ int part_2() {
 /// Η συμβολοσειρά ακολουθεί τη λογική FIFO - δηλαδή
 /// @param stack Στοίχα τύπου int που περιέχει έγκυρους κωδικούς ASCII
 void display_word(stack_type *stack) {
-    while(!is_empty(*stack)) {
+    while (!is_empty(*stack)) {
         int tmp;
         pop(stack, &tmp);
         printf("%c", tmp);
