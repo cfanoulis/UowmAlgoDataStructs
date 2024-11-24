@@ -6,4 +6,4 @@ set(CMAKE_C_STANDARD 11)
 add_executable(Ergasia1 main.c
         vendor/stack.h
         vendor/stack.c
-        vendor/str_stack.h)
+)
