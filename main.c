@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include "vendor/stack.h"
+#define FILENAME "./input.txt"
 
 int part_1();
-
 int part_2();
-
 void display_word(stack_type *stack);
 
 
@@ -67,10 +66,7 @@ int part_1() {
 
 
 int part_2() {
-    printf("Input file (escape properly!):");
-    char *filename = "";
-    scanf("%.256s", filename);
-    FILE *fp = fopen(filename, "r");
+    FILE *fp = fopen(FILENAME, "r");
 
     if (fp == NULL) {
         printf("Error opening file\n");
@@ -113,7 +109,7 @@ int part_2() {
 
 /// Εμφανίζει τα περιεχόμενα μίας στοίβας ως μια συμβολοσειρά
 /// Η συμβολοσειρά ακολουθεί τη λογική FIFO - δηλαδή
-/// @param stack Στοίχα τύπου int που περιέχει έγκυρους κωδικούς ASCII
+/// @param stack Στοίβα τύπου int που περιέχει έγκυρους κωδικούς ASCII
 void display_word(stack_type *stack) {
     while (!is_empty(*stack)) {
         int tmp;
